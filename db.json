@@ -37,6 +37,14 @@
             "notes": "jgfjf",
             "owner": 2,
             "id": 3
+        },
+        {
+            "name": "Siw",
+            "breed": "Labradoodle",
+            "age": "1",
+            "notes": "FLUFFY",
+            "owner": 2,
+            "id": 4
         }
     ]
 }

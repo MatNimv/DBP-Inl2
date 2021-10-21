@@ -12,8 +12,6 @@ require_once "includes/functions.php";
 require_once "includes/header.php";
 ?>
 
-
-
 <!-- skapa element för varje hund -->
 <h2>All Dogs</h2>
 <div id="list">

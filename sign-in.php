@@ -7,18 +7,17 @@
 //(formuläret kan antingen skicka sin data till en separat fil eller till sig själv). Skickar användaren 
 //till "Dogs" vid inloggning, annars ska ett relevant felmeddelande visas. När en användare har 
 //loggat in ska ni spara dennes "id" i er session (så ni har det tillgodo)
+
 error_reporting(-1);
 session_start();
+require_once "includes/functions.php";
 require_once "includes/header.php";
-
-//JSON-hantering.
-$json = file_get_contents("db.json");
-$data = json_decode($json, true);
 ?>
 
 <!-- hantering av $_POST. -->
 <?php
-$users = $data["users"];
+//få ut alla användare från JSON.
+$users = getAllUsersDB();
 
 if (isset($_POST["email"], $_POST["password"])){
     $email = $_POST["email"];
@@ -30,8 +29,6 @@ if (isset($_POST["email"], $_POST["password"])){
             $_SESSION["isLoggedIn"] = true;
             //användarnamn.
             $_SESSION["user"] = $user["username"];
-            //email.
-            $_SESSION["email"] = $user["email"];
             //id.
             $_SESSION["id"] = $user["id"];
 
@@ -75,7 +72,6 @@ if (isset($_GET["error"])){
 }
 ?>
 
-
 <!-- Formulär -->
 <div id="sign-in">
     <form method="POST" action="/sign-in.php">
@@ -83,10 +79,6 @@ if (isset($_GET["error"])){
         <input type="password" name="password" placeholder="Your Password">
         <button>Sign In</button>
     </form>
-
 </div>
 
-
 <?php require_once "includes/footer.php"; ?>
-
-

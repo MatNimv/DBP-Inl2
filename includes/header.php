@@ -20,8 +20,8 @@
             if (!isset($_SESSION["isLoggedIn"])){
                 echo "
                     <nav>
-                        <h2><a href='/index.php'>Hem</a></h2>
-                        <h2><a href='/list.php'>Hundar</a></h2>
+                        <h2><a href='/index.php'>Home</a></h2>
+                        <h2><a href='/list.php'>Dogs</a></h2>
                         <h2><a href='/sign-in.php'>Sign In</a></h2>
                     </nav>
                 ";
@@ -29,11 +29,11 @@
                 //är någon inloggad? yes.
                 echo "
                 <nav>
-                    <h2><a href='/index.php'>Hem</a></h2>
-                    <h2><a href='/list.php'>Hundar</a></h2>
+                    <h2><a href='/index.php'>Home</a></h2>
+                    <h2><a href='/list.php'>Dogs</a></h2>
                     <h2><a href='/add.php'>Add</a></h2>
                     <h2><a href='/profile.php'>Profile</a></h2>
-                    <h2><a href='/sign-out.php'>Logga Ut</a></h2>
+                    <h2><a href='/sign-out.php'>Sign Out</a></h2>
                 </nav>
             ";
             }
