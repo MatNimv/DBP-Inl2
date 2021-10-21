@@ -1,0 +1,145 @@
+/* Din CSS */
+
+/* VALFRITT: Gratis CSS, däremot måste ni själv lägga till elementen */
+
+
+body {
+    font-family: Helvetica;
+    line-height: 1.4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position:relative;
+}
+
+main{
+    margin-top: 100px;
+    padding-bottom: 40px;
+}
+main > h1{text-align: center;}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    font-family: Helvetica;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #3a3a3a;
+    border-bottom: 1px solid #aaa;
+}
+
+nav a:hover {
+    transition: background-color 200ms ease;
+    background-color: #eee;
+}
+
+#wrapper{
+    box-shadow: 0px 0px 25px 2px rgb(121, 121, 121);
+    padding: 20px 30px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#wrapper > h2, h3 {
+    font-family: Georgia;
+    font-weight: normal;
+    text-align: center;
+}
+
+form {
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+input, button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 8px 10px;
+    border-radius: 2px;
+    color: #ffffff;
+    background-color: rgb(27, 117, 177);
+    border: 0;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    display:flex;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: rgb(24, 92, 138);
+}
+
+form h2 {
+    color: #3a3a3a;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #aaa;
+}
+
+footer{
+    position:absolute;
+    bottom: 0px;
+    display:flex;
+    padding-top: 10px;
+    border-top: 1px solid #aaa;
+}
+footer > p:last-child{padding-left: 5px;}
+footer p {
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+    font-family: Georgia;
+    font-style: italic;
+    font-size: 14px;
+    color: #6a6a6a;
+}
+
+main > h1, h2 {
+    text-align: center;
+}
+
+.fett {
+    font-family: Georgia;
+    font-weight: normal;
+}
+
+p.error {
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+    color: #d94e4e;
+}
+
+#profile > h1, h2 {
+    text-align: center;
+}
+
+#list{
+    display:flex;
+    flex-direction: column;
+}
+.oneDog{
+    display:flex;
+    flex-direction: row;
+}
