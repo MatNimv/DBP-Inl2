@@ -33,7 +33,7 @@ if (isset($_POST["email"], $_POST["password"])){
             $_SESSION["id"] = $user["id"];
 
             //när det är sparat i sessionen, skickas
-            //användaren till list.php. (Doglistan)
+            //användaren till list.php. (listan med hundar)
             header("Location: /list.php");
             exit();
         }

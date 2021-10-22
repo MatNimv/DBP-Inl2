@@ -6,4 +6,7 @@ error_reporting(-1);
 //Detta ska inte vara en sida. Ni ska genom denna fil radera en hund (detta 
 //ska styras genom GET-parametern "id") och sedan skicka tillbaka användaren till sidan 
 //"Profile".
+require_once "includes/functions.php";
 ?>
+
+

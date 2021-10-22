@@ -1,8 +1,5 @@
 /* Din CSS */
 
-/* VALFRITT: Gratis CSS, däremot måste ni själv lägga till elementen */
-
-
 body {
     font-family: Helvetica;
     line-height: 1.4;
@@ -142,4 +139,13 @@ p.error {
 .oneDog{
     display:flex;
     flex-direction: row;
+}
+
+.oneDog > p {
+    flex-basis: 0;
+    flex-grow: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

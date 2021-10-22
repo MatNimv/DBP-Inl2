@@ -31,20 +31,44 @@
             "id": 2
         },
         {
-            "name": "Nikki",
-            "breed": "Finsk Lapphund",
-            "age": "7",
-            "notes": "jgfjf",
-            "owner": 2,
-            "id": 3
-        },
-        {
             "name": "Siw",
             "breed": "Labradoodle",
             "age": "1",
             "notes": "FLUFFY",
             "owner": 2,
             "id": 4
+        },
+        {
+            "name": "Nikki",
+            "breed": "Finsk Lapphund",
+            "age": "1",
+            "notes": "She's cute",
+            "owner": 1,
+            "id": 5
+        },
+        {
+            "name": "Sally",
+            "breed": "Jack Russel",
+            "age": "2",
+            "notes": "She's a spoiled girl that loves the CHICKEN",
+            "owner": 1,
+            "id": 6
+        },
+        {
+            "name": "Loca",
+            "breed": "Pug",
+            "age": "10",
+            "notes": "She can't fecken run!",
+            "owner": 1,
+            "id": 7
+        },
+        {
+            "name": "Erik",
+            "breed": "Mastiff",
+            "age": "-7",
+            "notes": "He runs four hours a day",
+            "owner": 1,
+            "id": 8
         }
     ]
 }

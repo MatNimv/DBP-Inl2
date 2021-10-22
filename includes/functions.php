@@ -18,15 +18,17 @@ function getAllDogsDB(){
     $jsonDogs = file_get_contents("db.json");
     $data = json_decode($jsonDogs, true);
 
-    //ALLA dogs tho.
     $allDogs = $data["dogs"];
 
     return $allDogs;
 }
 
 
-// - Hämta en hund från databasen för ägaren 
-// med hjälp av owner: id och ägarens id
+// - Hämta en hund från databasen från $_GET  
+// med hjälp av ?breed= eller ?id=
+//när det är id är location show.php.
+//breed är location list.php. iomed att det kan vara flera på breed
+
 
 
 // - Lägg till en ny hund i databasen
@@ -58,6 +60,8 @@ function addDog($postInfo){
     file_put_contents("db.json", $json);
 }
 
+//ta bort en hund för databasen. Denna actionen finns endast i profile.
+
 //DOM för en hund.
 function showOneDog($dogInfo){
     //koppla ihop användaren till sin hund
@@ -70,16 +74,42 @@ function showOneDog($dogInfo){
             $nameOfUser = '<p>No owner.</p>';
         }
     }
+    //om vi är inne på profile ska deleteknappen finnas
+    if (checkIfURL("profile") == true){
+        $dogDiv = "<div class='oneDog'>
+        <p class='name'><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+        <p class='breed'><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
+        <p class='age'>{$dogInfo['age']}</p>
+        <p class='notes'>{$dogInfo['notes']}</p>
+        <p class='owner'>{$nameOfUser}</p>
+        <p class='delete'><a href='{$dogInfo['id']}'>DELETE</a></p>
+    </div>";
+    } else { //om vi INTE är inne på profile. då ska vi inte kunna
+        // se delete knappen.
+        $dogDiv = "<div class='oneDog'>
+        <p class='name'><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+        <p class='breed'><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
+        <p class='age'>{$dogInfo['age']}</p>
+        <p class='notes'>{$dogInfo['notes']}</p>
+        <p class='owner'>{$nameOfUser}</p>
+    </div>";
+    }
 
-    $dogDiv = "<div class='oneDog'>
-                <p class='name'><a href='show.php?name={$dogInfo['name']}'>{$dogInfo['name']}</a></p>
-                <p class='breed'><a href='show.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
-                <p class='age'>{$dogInfo['age']}</p>
-                <p class='notes'>{$dogInfo['notes']}</p>
-                <p class='owner'>{$nameOfUser}</p>
-            </div>";
+
     return $dogDiv;
 }
+
+//kollar efter särskild URL.
+function checkIfURL($wordInURL){
+    $doesWordExist = true;
+    if (strpos($_SERVER['REQUEST_URI'], "$wordInURL") !== false){
+    return $doesWordExist;
+    } else {
+        return false;
+    }
+    return $doesWordExist;
+}
+
 
 //en ny användare
 function addOneUser(){
