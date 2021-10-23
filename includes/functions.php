@@ -1,38 +1,29 @@
 <?php
 error_reporting(-1);
-// Samling av relevanta funktioner, t.ex.:
-// - Hämta en användare från databasen
 
 //Hämtar alla användare från DB
 function getAllUsersDB(){
-    $jsonUser = file_get_contents("db.json");
-    $dataUser = json_decode($jsonUser, true);
+    $json = file_get_contents("db.json");
+    $data = json_decode($json, true);
 
     //ALLA användare tho.
-    $allUsers = $dataUser["users"];
+    $allUsers = $data["users"];
     return $allUsers;
 }
 
-// - Hämta alla hundar från databasen
+//Hämta alla hundar från databasen
 function getAllDogsDB(){
-    $jsonDogs = file_get_contents("db.json");
-    $data = json_decode($jsonDogs, true);
+    $json = file_get_contents("db.json");
+    $data = json_decode($json, true);
 
     $allDogs = $data["dogs"];
 
     return $allDogs;
 }
 
-
-// - Hämta en hund från databasen från $_GET  
-// med hjälp av ?breed= eller ?id=
-//när det är id är location show.php.
-//breed är location list.php. iomed att det kan vara flera på breed
-
-
-
-// - Lägg till en ny hund i databasen
+//Lägg till en ny hund i databasen
 function addDog($postInfo){
+    //nycklar för den nya hunden, från $_POST
     $newDog = [
         "name" => $postInfo["dogName"],
         "breed" => $postInfo["breed"],
@@ -40,7 +31,7 @@ function addDog($postInfo){
         "notes" => $postInfo["notes"]
     ];
     //denna foreachen räknar ut den nya 
-    //hundens id utifrån vilka som finns
+    //hundens id utifrån vilka som redan finns
     $highestID = 0;
 
     $allDogs = getAllDogsDB();
@@ -60,9 +51,31 @@ function addDog($postInfo){
     file_put_contents("db.json", $json);
 }
 
-//ta bort en hund för databasen. Denna actionen finns endast i profile.
+//ta bort specifik hund från databasen
+function deleteDog($dogID){
+    $manyDogs = getAllDogsDB();
 
-//DOM för en hund.
+    $found = false;
+    foreach($manyDogs as $key => $dog){
+        if ($dogID == $dog["id"]){
+            $found = true;
+            $index = $key;
+            break;
+        }
+    }
+    if ($found){
+        $data = json_decode(file_get_contents("db.json"), true);
+        unset($data["dogs"][$index]);
+        $json = json_encode($data, JSON_PRETTY_PRINT);
+        file_put_contents("db.json", $json);
+    }
+
+    //och byter tillbaka till profile.php
+    header("Location: /profile.php");
+    exit();
+}
+
+//DOM för en (1) hund.
 function showOneDog($dogInfo){
     //koppla ihop användaren till sin hund
     $allUsers = getAllUsersDB();
@@ -76,45 +89,70 @@ function showOneDog($dogInfo){
     }
     //om vi är inne på profile ska deleteknappen finnas
     if (checkIfURL("profile") == true){
-        $dogDiv = "<div class='oneDog'>
-        <p class='name'><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
-        <p class='breed'><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
-        <p class='age'>{$dogInfo['age']}</p>
-        <p class='notes'>{$dogInfo['notes']}</p>
-        <p class='owner'>{$nameOfUser}</p>
-        <p class='delete'><a href='{$dogInfo['id']}'>DELETE</a></p>
-    </div>";
-    } else { //om vi INTE är inne på profile. då ska vi inte kunna
-        // se delete knappen.
-        $dogDiv = "<div class='oneDog'>
-        <p class='name'><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
-        <p class='breed'><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
-        <p class='age'>{$dogInfo['age']}</p>
-        <p class='notes'>{$dogInfo['notes']}</p>
-        <p class='owner'>{$nameOfUser}</p>
-    </div>";
+        $dogDiv = "
+        <div class='oneDog'>    
+            <div class='name'>
+                <p>NAME</p>
+                <p><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+            </div>
+            <div class='breed'>
+                <p>BREED</p>
+                <p><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
+            </div>
+            <div class='age'>
+                <p>AGE</p>
+                <p >{$dogInfo['age']}</p>
+            </div>
+            <div class='notes'>
+                <p>NOTES</p>
+                <p >{$dogInfo['notes']}</p>
+            </div>
+            <div class='owner'>
+                <p>OWNER</p>
+                <p>{$nameOfUser}</p>
+            </div>
+            <div class='delete'>
+                <p>ACTION</p>
+                <p><a href='delete.php?id={$dogInfo['id']}'>DELETE</a></p>
+            </div>
+        </div>";
+    } else {//om vi INTE är inne på profile. då ska vi 
+        //inte kunna se delete knappen.
+        $dogDiv = "
+        <div class='oneDog' style='grid-template-columns: repeat(5, 1fr);'>
+            <div class='name'>
+                <p>NAME</p>
+                <p><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+            </div>
+            <div class='breed'>
+                <p>BREED</p>
+                <p><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
+            </div>
+            <div class='age'>
+                <p>AGE</p>
+                <p >{$dogInfo['age']}</p>
+            </div>
+            <div class='notes'>
+                <p>NOTES</p>
+                <p >{$dogInfo['notes']}</p>
+            </div>
+            <div class='owner'>
+                <p>OWNER</p>
+                <p >{$nameOfUser}</p>
+            </div>
+        </div>";
     }
-
-
     return $dogDiv;
 }
 
 //kollar efter särskild URL.
-function checkIfURL($wordInURL){
-    $doesWordExist = true;
-    if (strpos($_SERVER['REQUEST_URI'], "$wordInURL") !== false){
-    return $doesWordExist;
+function checkIfURL($stringInURL){
+    if (strpos($_SERVER['REQUEST_URI'], "$stringInURL") !== false){
+    return true;
     } else {
         return false;
     }
-    return $doesWordExist;
 }
 
-
-//en ny användare
-function addOneUser(){
-    //$jsonUser = file_get_contents("db.json");
-    //$dataUser = json_decode($jsonUser, true);
-}
 ?>
 

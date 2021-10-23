@@ -11,10 +11,16 @@
             "email": "matilda@gmail.com",
             "username": "matte",
             "password": "catcat"
+        },
+        {
+            "id": 3,
+            "email": "tove@test.se",
+            "username": "tove",
+            "password": "hellodog"
         }
     ],
-    "dogs": [
-        {
+    "dogs": {
+        "0": {
             "name": "Arya",
             "breed": "Husky",
             "age": "1",
@@ -22,53 +28,45 @@
             "owner": 1,
             "id": 1
         },
-        {
-            "name": "Billie",
-            "breed": "French Bulldog",
-            "age": "7",
-            "notes": "Clumsy and FURious",
+        "1": {
+            "name": "Nikki",
+            "breed": "Finnish Lapphund",
+            "age": "4",
+            "notes": "Fluff",
             "owner": 1,
             "id": 2
         },
-        {
+        "2": {
             "name": "Siw",
             "breed": "Labradoodle",
-            "age": "1",
-            "notes": "FLUFFY",
+            "age": "11",
+            "notes": "Curly dawg",
             "owner": 2,
-            "id": 4
+            "id": 3
         },
-        {
-            "name": "Nikki",
-            "breed": "Finsk Lapphund",
-            "age": "1",
-            "notes": "She's cute",
-            "owner": 1,
+        "4": {
+            "name": "Hoppe",
+            "breed": "Tax",
+            "age": "8",
+            "notes": "Dont' eat me",
+            "owner": 3,
             "id": 5
         },
-        {
+        "5": {
             "name": "Sally",
-            "breed": "Jack Russel",
-            "age": "2",
-            "notes": "She's a spoiled girl that loves the CHICKEN",
-            "owner": 1,
+            "breed": "Pug",
+            "age": "4",
+            "notes": "She can't fecken run!",
+            "owner": 3,
             "id": 6
         },
-        {
-            "name": "Loca",
-            "breed": "Pug",
-            "age": "10",
-            "notes": "She can't fecken run!",
-            "owner": 1,
+        "6": {
+            "name": "Allan",
+            "breed": "Shih Tzu",
+            "age": "3",
+            "notes": "Small one",
+            "owner": 2,
             "id": 7
-        },
-        {
-            "name": "Erik",
-            "breed": "Mastiff",
-            "age": "-7",
-            "notes": "He runs four hours a day",
-            "owner": 1,
-            "id": 8
         }
-    ]
+    }
 }
