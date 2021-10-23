@@ -20,14 +20,6 @@
         }
     ],
     "dogs": {
-        "0": {
-            "name": "Arya",
-            "breed": "Husky",
-            "age": "1",
-            "notes": "En Stark och stark",
-            "owner": 1,
-            "id": 1
-        },
         "1": {
             "name": "Nikki",
             "breed": "Finnish Lapphund",
@@ -67,6 +59,14 @@
             "notes": "Small one",
             "owner": 2,
             "id": 7
+        },
+        "7": {
+            "name": "Erik",
+            "breed": "Mastiff",
+            "age": "16",
+            "notes": "He runs four hours a day",
+            "owner": 1,
+            "id": 8
         }
     }
 }

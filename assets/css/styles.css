@@ -9,7 +9,22 @@ body {
     position:relative;
 }
 
-main > h1{text-align: center;}
+header > h1{text-align: center;
+    color: white;}
+
+header{
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/header.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 10;
+    position: relative;
+    margin-top: 10px;
+}
 
 nav {
     display: flex;
@@ -36,6 +51,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 100;
 }
 
 #wrapper > h3{
@@ -58,6 +74,7 @@ nav > h2 a{
     font-weight: bold;
     margin: 0px;
 }
+nav > h2{margin-top:0px;}
 
 form {
     max-width: 350px;
@@ -141,7 +158,7 @@ footer p {
 }
 .oneDog{
     display:grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 147px);
     width: 100%;
 }
 
@@ -225,6 +242,7 @@ footer p {
 
 .oneDog a:hover{
     color: rgb(16, 64, 97);
+    text-decoration: underline;
 }
 
 .oneDog .delete > p:last-child a{
