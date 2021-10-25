@@ -16,6 +16,7 @@ require_once "includes/header.php";
 
 <!-- hantering av $_POST. -->
 <?php
+require_once "includes/navigation.php";
 //få ut alla användare från JSON.
 $users = getAllUsersDB();
 
@@ -72,13 +73,15 @@ if (isset($_GET["error"])){
 }
 ?>
 
-<!-- Formulär -->
-<div id="sign-in">
-    <form method="POST" action="/sign-in.php">
-        <input type="text" name="email" placeholder="Your Email">
-        <input type="password" name="password" placeholder="Your Password">
-        <button>Sign In</button>
-    </form>
-</div>
+<div id="home">
 
+    <!-- Formulär -->
+    <div id="sign-in">
+        <form method="POST" action="/sign-in.php">
+            <input type="text" name="email" placeholder="Your Email">
+            <input type="password" name="password" placeholder="Your Password">
+            <button>Sign In</button>
+        </form>
+    </div>
+</div>
 <?php require_once "includes/footer.php"; ?>

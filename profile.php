@@ -18,33 +18,46 @@ require_once "includes/header.php";
 
 ?>
 
-<div id="profile">
-    <h2 class='title'>Your Dogs</h2>
-    <div id="list">
-<?php
+<div id="inside">
+<?php require_once "includes/navigation.php"; ?>
 
-$allDogs = getAllDogsDB();
-// går genom och visar ENDAST den 
-// inloggades hundar.
 
-foreach($allDogs as $dog)
-//sedan en koppling mellan den inloggade och hundens ägare
-    if ($_SESSION["id"] == $dog["owner"]){
-        echo showOneDog($dog);
+    <div id="profile">
+        <h2 class='title'>Your Dogs</h2>
+        <div id="list">
+    <?php
+
+    $allDogs = getAllDogsDB();
+    // går genom och visar ENDAST den 
+    // inloggades hundar.
+
+    foreach($allDogs as $dog)
+    //sedan en koppling mellan den inloggade och hundens ägare
+        if ($_SESSION["id"] == $dog["owner"]){
+            echo showOneDog($dog);
+        }
+
+    //om användaren inte har en hund
+    $checkIfNoDogs = [];
+    foreach($allDogs as $dog){
+        if($_SESSION["id"] == $dog["owner"]){
+            array_push($checkIfNoDogs, $dog);
+        }
     }
-
-//om användaren inte har en hund
-$checkIfNoDogs = [];
-foreach($allDogs as $dog){
-    if($_SESSION["id"] == $dog["owner"]){
-        array_push($checkIfNoDogs, $dog);
+    if (count($checkIfNoDogs) == 0){
+        echo "<h4>You have no dogs. Go ahead and <a href='add.php'>add</a> one.</h4>";
     }
-}
-if (count($checkIfNoDogs) == 0){
-    echo "<h4>You have no dogs. Go ahead and <a href='add.php'>add</a> one.</h4>";
+    ?>
+
+        </div>
+    </div>
+
+</div>
+<?php 
+if (isset($_SESSION["isLoggedIn"])){
+echo '<div id="loggedContainer">
+        <div id="loggedIn"><a href="sign-out.php">Sign out</a></div>
+    </div>';
 }
 ?>
-    </div>
-</div>
-
 <?php require_once "includes/footer.php"; ?>

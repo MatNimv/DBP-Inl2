@@ -33,30 +33,42 @@ if (isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
     addDog($_POST);
 }
 ?>
-<div id="add">
-    <h2 class="title">Add another dog to your database</h2>
-    <form action="/add.php" method="POST">
-        <input type="text" name="dogName" placeholder="Name">
-        <input type="text" name="breed" placeholder="Breed">
-        <input type="number" min="0" name="age" placeholder="Age">
-        <input type="text" name="notes" placeholder="Notes">
-        <button>Add</button>
-    </form>
-    <?php
-    if(isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
-        echo "<p>You added <span class='fett'>{$_POST['dogName']}</span>, who is a <span class='fett'>{$_POST['age']}</span>-year old <span class='fett'>{$_POST['breed']}</span>!</p>";
+
+<div id="inside">
+<?php require_once "includes/navigation.php"; ?>
+    <div id="add">
+        <h2 class="title">Add another dog to your database</h2>
+        <form action="/add.php" method="POST">
+            <input type="text" name="dogName" placeholder="Name">
+            <input type="text" name="breed" placeholder="Breed">
+            <input type="number" min="0" name="age" placeholder="Age">
+            <input type="text" name="notes" placeholder="Notes">
+            <button>Add</button>
+        </form>
+        <?php
+        if(isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
+            echo "<p>You added <span class='fett'>{$_POST['dogName']}</span>, who is a <span class='fett'>{$_POST['age']}</span>-year old <span class='fett'>{$_POST['breed']}</span>!</p>";
+        }
+
+    //kikar efter errors i $_GET.
+    if (isset($_GET["error"])){
+        $error = $_GET["error"];
+        if ($error == 1){//error 1 : fälten är tomma.
+            echo '<p class="error">Please leave no empty fields.</p>';
+        } elseif($error == 2){//error 2: du har en himla gammal hund alltså
+            echo '<p class="error">Bro. Your dog is not that old.</p>';
+        }
     }
 
-//kikar efter errors i $_GET.
-if (isset($_GET["error"])){
-    $error = $_GET["error"];
-    if ($error == 1){//error 1 : fälten är tomma.
-        echo '<p class="error">Please leave no empty fields.</p>';
-    } elseif($error == 2){//error 2: du har en himla gammal hund alltså
-        echo '<p class="error">Bro. Your dog is not that old.</p>';
-    }
+        ?>
+    </div>
+<?php 
+if (isset($_SESSION["isLoggedIn"])){
+echo '<div id="loggedContainer">
+        <div id="loggedIn"><a href="sign-out.php">Sign out</a></div>
+    </div>';
 }
-
-    ?>
+?>
 </div>
+
 <?php require_once "includes/footer.php"; ?>
