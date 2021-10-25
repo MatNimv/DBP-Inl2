@@ -1,0 +1,15 @@
+body{
+    height: 100vh;
+    margin:0px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    width: 1040px; /*25 rutor*/
+    height: 640px; /*15 rutor*/
+    background-color: cadetblue;
+    border: 5px solid burlywood;
+}
