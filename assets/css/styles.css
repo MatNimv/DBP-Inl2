@@ -17,15 +17,20 @@ body {
 }
 #wrapper{position: relative;}
 
+.title{
+    position: absolute;
+    left: 20px;
+}
 
 /*BAKGRUNDSBILDER */
-#home, #backyard, #zoomBackyard, #inside{
+#home, #zoomHome, #backyard, #zoomBackyard, #inside{
     background-size: cover;
     width: 1000px;
     height: 600px;
     position: relative;
 }
 #home{background-image: url("../images/backgrounds/home.png");}
+#zoomHome{background-image: url("../images/backgrounds/zoomHome.png");}
 #backyard{background-image: url("../images/backgrounds/backyard.png");}
 #zoomBackyard{background-image: url("../images/backgrounds/zoomBackyard.png");}
 #inside{background-image: url("../images/backgrounds/inside.png");}
@@ -39,7 +44,8 @@ body {
 
 
 /*VÄLKOMSTTEXT*/
-#index > #parchmentFold{
+#index > #parchmentFold,
+#sign-in > #parchmentFold{
     background-image: url("../images/UI/Worn-Parchment-BG-2.png");
     width: 100%;
     height: 100%;
@@ -48,9 +54,19 @@ body {
     display:flex;
     justify-content: center;
 }
+#sign-in > #parchmentFold{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+#sign-in > #parchmentFold > .text{position:absolute;bottom: 120px;left: 50px;}
+form {display:flex; flex-direction: column; align-items: center;}
+form > input{margin: 10px;}
 #index > #parchmentFold > .text{width: 300px; text-align: center; margin-top:6px;}
 #index > #parchmentFold > .text > h6{margin-top: 0px; margin-bottom:0px;}
-#index > #parchmentFold > .text > p{ margin-bottom:0px;}
+#index > #parchmentFold > .text > p{ margin-bottom:5px;}
 #index > #parchmentFold > .text > p:first-child + p{ margin-top:0px;margin-bottom:2px;}
 #index > #parchmentFold > h6 .title{margin-bottom: 5px;}
 .choices > a, .choices > span{margin-top:4px; font-size: 12px;}
@@ -59,7 +75,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    text-align: center;}
+    text-align: center;
+    margin-top: 15px;}
 #index{
     width: 370px;
     height: 300px;
@@ -68,54 +85,40 @@ body {
     top: 30px;
     background-repeat: no-repeat;
 }
+#sign-in{
+    width: 370px;
+    height: 300px;
+    position: absolute;
+    right: 120px;
+    top: 330px;
+    background-repeat: no-repeat;
+}
 
 /*NAVIGATION */
-#signContainer > #toBackyard{
+
+#signContainer > #toBackyard{/*#home to list.php*/
     position: absolute;
     left: 490px;
     top: 150px;
     width: 100px;
     height: 150px;
 }
-#toBackyard{
-    background-image: url("../images/UI/Box-1-Opaque.png"); 
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
 #toBackyard > p{
     position: absolute;
-    top: 7px;
     display:flex;
     flex-direction: column;
     text-align: center;
     font-size: 12px;
+    top: 7px;
     left:22px;
 }
-
-#signContainer > #toAdd{
+#signContainer > #toAdd{/*#home to add*/
     position: absolute;
     left: 160px;
     top: 275px;
     width: 100px;
     height: 150px;
 } 
-#signContainer > #toProfile{
-    position: absolute;
-    left: 260px;
-    top: 275px;
-    width: 100px;
-    height: 150px;
-}
-#toProfile, 
-#toAdd{
-    background-image: url("../images/UI/Box-1-Opaque.png"); 
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
 #toAdd > p{
     position: absolute;
     display:flex;
@@ -124,6 +127,13 @@ body {
     font-size: 12px;
     left: 30px;
     top: 20px;
+}
+#signContainer > #toProfile{/*#home to profile*/
+    position: absolute;
+    left: 260px;
+    top: 275px;
+    width: 100px;
+    height: 150px;
 }
 #toProfile > p{
     position: absolute;
@@ -134,6 +144,195 @@ body {
     left: 35px;
     top: 23px;
 }
+#signContainer > #toInsideFromHome{/*#home to sign.in*/
+    position: absolute;
+    left: 210px;
+    top: 275px;
+    width: 110px;
+    height: 150px;
+}
+#toInsideFromHome > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 32px;
+    top: 20px;
+}
+#signContainer > #toInsideFromList{/*#list to unlock sign-in*/
+    position: absolute;
+    left: 500px;
+    top: 5px;
+    width: 100px;
+    height: 150px;
+}
+#toInsideFromList > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 26px;
+    top: 20px;
+}
+#signContainer > #toProfileFromList{/*#list to profile*/
+    position: absolute;
+    left: 600px;
+    top: 5px;
+    width: 100px;
+    height: 150px;
+}
+#toProfileFromList > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 33px;
+    top: 25px;
+}
+#signContainer > #toAddFromList{/*#list to add.php*/
+    position: absolute;
+    left: 700px;
+    top: 5px;
+    width: 100px;
+    height: 150px;
+}
+#toAddFromList > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 30px;
+    top: 20px;
+}
+#signContainer > #toHomeFromList{/*#list to index.php*/
+    position: absolute;
+    left: 400px;
+    top: 5px;
+    width: 100px;
+    height: 150px;
+}
+#toHomeFromList > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 11px;
+    top: 15px;
+}
+#backyard > #signContainer > #backFromSpecific{/*(#list) back to list.php*/
+    position: absolute;
+    left: 50px;
+    top: 70px;
+    width: 100px;
+    height: 150px;
+}
+#show > #signContainer > #backFromSpecific{/*/#show) back to list.php*/
+    position: absolute;
+    left: 50px;
+    top: 35px;
+    width: 100px;
+    height: 150px;
+}
+#backFromSpecific > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 16px;
+    top: 15px;
+}
+#signContainer > #toHomeFromShow{/*#show to index.php*/
+    position: absolute;
+    left: 350px;
+    top: 35px;
+    width: 100px;
+    height: 150px;
+}
+#toHomeFromShow > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 12px;
+    top: 15px;
+}
+#signContainer > #toInsideFromShow{/*#show to sign-in*/
+    position: absolute;
+    left: 450px;
+    top: 35px;
+    width: 100px;
+    height: 150px;
+}
+#toInsideFromShow > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 27px;
+    top: 15px;
+}
+#signContainer > #toProfileFromShow{/*#show to profile*/
+    position: absolute;
+    left: 250px;
+    top: 70px;
+    width: 100px;
+    height: 150px;
+}
+#toProfileFromShow > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 16px;
+    top: 15px;
+}
+#signContainer > #toAddFromShow{/*#show to add*/
+    position: absolute;
+    left: 150px;
+    top: 70px;
+    width: 100px;
+    height: 150px;
+}
+#toAddFromShow > p{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 12px;
+    left: 16px;
+    top: 15px;
+}
+#toBackyard,
+#toProfile, 
+#toAdd,
+#toInsideFromHome,
+#toInsideFromList,
+#toProfileFromList,
+#toAddFromList,
+#toHomeFromList,
+#backFromSpecific,
+#toHomeFromShow,
+#toInsideFromShow,
+#toProfileFromShow,
+#toAddFromShow{
+    background-image: url("../images/UI/Box-1-Opaque.png"); 
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+
 
 /*FOOOTER*/
 footer{
@@ -171,6 +370,102 @@ footer p {
     position: relative;
     bottom: 3px;
 }
+
+/*SHOW - dogs */
+#show .einHundList, .einHundProfile{
+    position: absolute;
+    font-size: 16px;
+}
+#show .dogInfo > .name > :first-child{font-weight: bolder;}
+#show .dogInfo > .breed > :first-child, 
+#show .dogInfo > .age > :first-child,
+#show .dogInfo > .owner > :first-child,
+#show .dogInfo > .notes> :first-child{
+    margin: 0px 10px 0px 10px;
+    font-weight: bolder;
+}
+#show .einHundList{top: 250px;left: 200px;}
+
+/*LIST - dogs */
+.einHundList, .einHundProfile{
+    position: absolute;
+    font-size: 10px;
+}
+
+.dogInfo{
+    display:grid;
+    text-align:center;
+    background-color: rgb(214, 192, 118);
+    border: 4px solid rgb(138, 123, 75);
+}
+#show .dogInfo{grid-template-columns: repeat(5, 80px);}
+#list .dogInfo{grid-template-columns: repeat(5, 50px);}
+.dogInfo > .name > :first-child,
+.dogInfo > .breed > :first-child, 
+.dogInfo > .age > :first-child,
+.dogInfo > .owner > :first-child,
+.dogInfo > .notes> :first-child{
+    margin: 0px 4px 0px 4px;
+    font-weight: bolder;
+}
+.dogInfo > .notes{
+    position: absolute;
+    background-color: rgb(214, 192, 118);
+    border-right: 4px solid rgb(138, 123, 75);
+    border-bottom: 4px solid rgb(138, 123, 75);
+    z-index: 1;
+}
+#list .dogInfo > .notes{left: 210px;}
+#show .dogInfo > .notes{left: 330px;}
+.dogInfo > .breed{
+    margin: 0px 4px 0px 4px;
+}
+#list .dog1, 
+#list .dog2,
+#list .dog3,
+#list .dog4,
+#list .dog5,
+#list .dog6,
+#list .dog7,
+#list .dog8 { 
+    width: 50px;
+    height:50px;
+    position:absolute;
+    left: 150px;
+    background-size: contain;
+}
+#show .dog1, 
+#show .dog2,
+#show .dog3,
+#show .dog4,
+#show .dog5,
+#show .dog6,
+#show .dog7,
+#show .dog8 { 
+    width: 120px;
+    height:120px;
+    position:absolute;
+    left: 150px;
+    background-size: contain;
+}
+/*ful lösning lol*/
+.einHundList:nth-child(1){top: 300px; left: 300px;}
+.einHundList:nth-child(2){top: 465px; left: 220px;}
+.einHundList:nth-child(3){top: 200px; left: 0px;}
+.einHundList:nth-child(4){top: 450px; left: 520px;}
+.einHundList:nth-child(5){top: 180px; left: 430px;}
+.einHundList:nth-child(6){top: 320px; left: 600px;}
+.einHundList:nth-child(7){top: 350px; left: 25px;}
+.einHundList:nth-child(8){top: 465px; left: 220px;}
+
+.dog1{background-image: url("/assets/images/animals/dog_1.gif");}
+.dog2{background-image: url("/assets/images/animals/dog_2.gif");}
+.dog3{background-image: url("/assets/images/animals/dog_3.gif");}
+.dog4{background-image: url("/assets/images/animals/dog_4.gif");}
+.dog5{background-image: url("/assets/images/animals/dog_5.gif");}
+.dog6{background-image: url("/assets/images/animals/dog_6.gif");}
+.dog7{background-image: url("/assets/images/animals/dog_7.gif");}
+.dog8{background-image: url("/assets/images/animals/dog_8.gif");}
 /*header > h1{text-align: center;
     color: white;}
 
@@ -210,14 +505,7 @@ nav a:hover {
 }
 
 
-.title{
-    text-align: center;
-    font-family: Georgia;
-    font-weight: normal;
-    text-align: center;
-    margin: 2px 0px 10px 0px;
-    text-align: center;
-}
+
 
 nav > h2 a{
     font-family: Arial, Helvetica, sans-serif;

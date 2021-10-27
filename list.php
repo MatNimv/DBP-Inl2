@@ -19,8 +19,17 @@ $allDogs = getAllDogsDB();
     if (!isset($_GET["breed"])){
     echo '<h2 class="title">All Dogs</h2>';
     } else {
-        echo "<h2>All {$_GET['breed']}s</h2>";
-        echo "<h3><a href='list.php'>Go back to all the dogs</a></h3>";
+        echo "<h2 class='title'>All {$_GET['breed']}s</h2>";
+        echo "
+        <div id='signContainer'>
+            <div id='backFromSpecific'>
+                <p>
+                    <span><a href='list.php'>Go back</a></span>
+                    <span><a href='list.php'>to all </a></span>
+                    <span><a href='list.php'>the dogs</a></span>
+                </p>
+            </div>
+        </div>";
     }
     ?>
     <div id="list">
@@ -30,13 +39,13 @@ $allDogs = getAllDogsDB();
     if (isset($_GET["breed"])){
         $breed = $_GET["breed"];
         $dogBreeds = [];
-        //om ID stämmer överens med ID med hund - läggs den till i en array.
+        //om breed stämmer överens med breed med hund - läggs den till i en array.
         foreach($allDogs as $dog){
             if ($breed == $dog["breed"]){
                 array_push($dogBreeds, $dog);
             }
         }//om breeden INTE finns - alltså inget har lagts till i arrayen
-        //skrivs det ut ett felmeddelande.
+        //skrivs det ut ett felmeddelande. 
         if (count($dogBreeds) == 0){
             echo "<p class='error'>This breed does not exist.</p>";
         } else {//varje breed med samma $_GET visas
@@ -53,7 +62,8 @@ $allDogs = getAllDogsDB();
     //Tycker själv det är tydligare att ha foreach på plats där det sker.
     ?>
 
-    </div>
+</div>
+
 <?php 
 if (isset($_SESSION["isLoggedIn"])){
 echo '<div id="loggedContainer">
@@ -61,5 +71,8 @@ echo '<div id="loggedContainer">
     </div>';
 }
 ?>
-</div>
-<?php require_once "includes/footer.php";
+    </div>
+
+<!--<img src="/assets/images/animals/dog_3.gif">-->
+
+<?php require_once "includes/footer.php"; ?>

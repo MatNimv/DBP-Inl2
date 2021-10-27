@@ -1,6 +1,22 @@
 <?php
 error_reporting(-1);
 
+//arrayer för CSS
+//vilken position:absolute hunden ska ha - utomhus
+
+//vilken hundbild det blir
+
+
+    function randPosition($array){
+        shuffle($array);
+        for ($i=0; $i < $array; $i++){
+            return $array[$i];
+        }
+    }
+
+
+
+
 //Hämtar alla användare från DB
 function getAllUsersDB(){
     $json = file_get_contents("db.json");
@@ -77,6 +93,9 @@ function deleteDog($dogID){
 
 //DOM för en (1) hund.
 function showOneDog($dogInfo){
+    $whichDogImage = ["dog1","dog2","dog3","dog4","dog5","dog6","dog7","dog8"];
+    $randomDogImg = randPosition($whichDogImage);
+
     //koppla ihop användaren till sin hund
     $allUsers = getAllUsersDB();
     foreach($allUsers as $user){
@@ -117,30 +136,31 @@ function showOneDog($dogInfo){
             </div>
         </div>";
     } else {//om vi INTE är inne på profile. då ska vi 
-        //inte kunna se delete knappen.
         $dogDiv = "
-        <div class='oneDog' style='grid-template-columns: repeat(5, 1fr);'>
-            <div class='name'>
-                <p>NAME</p>
-                <p><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+        <div class='einHundList'>
+        <div class='dogTextContainer'>
+            <div class='dogInfo'>
+                <div class='name'>
+                    <p>Name</p><p><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+                </div>
+                <div class='breed'>
+                    <p>Breed</p><p><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
+                </div>
+                <div class='age'>
+                    <p>Age</p><p>{$dogInfo['age']}</p>
+                </div>
+                <div class='owner'>
+                    <p>Owner</p><p>{$nameOfUser}</p>
+                </div>
+                <div class='notes'>
+                    <p>Notes</p><p>{$dogInfo['notes']}</p>
+                </div>
             </div>
-            <div class='breed'>
-                <p>BREED</p>
-                <p><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
-            </div>
-            <div class='age'>
-                <p>AGE</p>
-                <p >{$dogInfo['age']}</p>
-            </div>
-            <div class='notes'>
-                <p>NOTES</p>
-                <p >{$dogInfo['notes']}</p>
-            </div>
-            <div class='owner'>
-                <p>OWNER</p>
-                <p >{$nameOfUser}</p>
-            </div>
-        </div>";
+        </div>
+        <div class='$randomDogImg'>
+        </div>
+    </div>";
+        
     }
     return $dogDiv;
 }

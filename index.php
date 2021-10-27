@@ -15,9 +15,6 @@ if (!isset($_SESSION["isLoggedIn"])){
                 <div class='text'>
                     <p> Welcome to <a href='/index.php'>IDDb</a>!</p>
                     <h6 class='choices'>
-                    <span>You can sign in</span>
-                    <a href='/sign-in.php'> here.</a>
-                    <span>Or</span>
                     <span> Look at the signs </span> 
                     <span>
                     to navigate!
@@ -42,7 +39,6 @@ if (!isset($_SESSION["isLoggedIn"])){
             </div>";
 }
 ?>
-
 <?php
 
 if (isset($_SESSION["isLoggedIn"])){

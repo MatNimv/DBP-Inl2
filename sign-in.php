@@ -73,15 +73,20 @@ if (isset($_GET["error"])){
 }
 ?>
 
-<div id="home">
+<div id="zoomHome">
 
-    <!-- Formulär -->
+<!-- Formulär -->
     <div id="sign-in">
-        <form method="POST" action="/sign-in.php">
-            <input type="text" name="email" placeholder="Your Email">
-            <input type="password" name="password" placeholder="Your Password">
-            <button>Sign In</button>
-        </form>
+        <div id="parchmentFold">
+            <div class="text">
+            <h2>To your backyard</h2>
+                <form method="POST" action="/sign-in.php">
+                    <input type="text" name="email" placeholder="Your Email">
+                    <input type="password" name="password" placeholder="Your Password">
+                    <button>Sign In</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <?php require_once "includes/footer.php"; ?>
