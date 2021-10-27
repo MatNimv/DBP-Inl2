@@ -109,32 +109,32 @@ function showOneDog($dogInfo){
     //om vi är inne på profile ska deleteknappen finnas
     if (checkIfURL("profile") == true){
         $dogDiv = "
-        <div class='oneDog'>    
-            <div class='name'>
-                <p>NAME</p>
-                <p><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+        <div class='einHundList'>
+        <div class='dogTextContainer'>
+            <div class='dogInfo'>
+                <div class='name'>
+                    <p>Name</p><p><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+                </div>
+                <div class='breed'>
+                    <p>Breed</p><p><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
+                </div>
+                <div class='age'>
+                    <p>Age</p><p>{$dogInfo['age']}</p>
+                </div>
+                <div class='owner'>
+                    <p>Owner</p><p>{$nameOfUser}</p>
+                </div>
+                <div class='notes'>
+                    <p>Notes</p><p>{$dogInfo['notes']}</p>
+                </div>
             </div>
-            <div class='breed'>
-                <p>BREED</p>
-                <p><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
-            </div>
-            <div class='age'>
-                <p>AGE</p>
-                <p >{$dogInfo['age']}</p>
-            </div>
-            <div class='notes'>
-                <p>NOTES</p>
-                <p >{$dogInfo['notes']}</p>
-            </div>
-            <div class='owner'>
-                <p>OWNER</p>
-                <p>{$nameOfUser}</p>
-            </div>
-            <div class='delete'>
-                <p>ACTION</p>
-                <p><a href='delete.php?id={$dogInfo['id']}'>DELETE</a></p>
-            </div>
-        </div>";
+        </div>
+        <div class='$randomDogImg'>
+        </div>
+        <div class='delete'>
+            <p><a href='delete.php?id={$dogInfo['id']}'>Remove dog :(</a></p>
+        </div>
+    </div>";
     } else {//om vi INTE är inne på profile. då ska vi 
         $dogDiv = "
         <div class='einHundList'>

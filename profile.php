@@ -24,7 +24,6 @@ require_once "includes/header.php";
 
     <div id="profile">
         <h2 class='title'>Your Dogs</h2>
-        <div id="list">
     <?php
 
     $allDogs = getAllDogsDB();
@@ -49,10 +48,7 @@ require_once "includes/header.php";
     }
     ?>
 
-        </div>
     </div>
-
-</div>
 <?php 
 if (isset($_SESSION["isLoggedIn"])){
 echo '<div id="loggedContainer">
@@ -60,4 +56,6 @@ echo '<div id="loggedContainer">
     </div>';
 }
 ?>
+</div>
+
 <?php require_once "includes/footer.php"; ?>

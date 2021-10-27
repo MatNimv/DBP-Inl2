@@ -37,18 +37,20 @@ if (isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
 <div id="inside">
 <?php require_once "includes/navigation.php"; ?>
     <div id="add">
-        <h2 class="title">Add another dog to your database</h2>
-        <form action="/add.php" method="POST">
-            <input type="text" name="dogName" placeholder="Name">
-            <input type="text" name="breed" placeholder="Breed">
-            <input type="number" min="0" name="age" placeholder="Age">
-            <input type="text" name="notes" placeholder="Notes">
-            <button>Add</button>
-        </form>
-        <?php
-        if(isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
-            echo "<p>You added <span class='fett'>{$_POST['dogName']}</span>, who is a <span class='fett'>{$_POST['age']}</span>-year old <span class='fett'>{$_POST['breed']}</span>!</p>";
-        }
+        <div id="parchmentFold">
+            <div class="text">
+                <h2>Adopt Dog</h2>
+                <form action="/add.php" method="POST">
+                    <input type="text" name="dogName" placeholder="Name">
+                    <input type="text" name="breed" placeholder="Breed">
+                    <input type="number" min="0" name="age" placeholder="Age">
+                    <input type="text" name="notes" placeholder="Notes">
+                    <button>Add</button>
+                </form>
+                </div>
+            </div>
+        
+<?php
 
     //kikar efter errors i $_GET.
     if (isset($_GET["error"])){
@@ -59,9 +61,18 @@ if (isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
             echo '<p class="error">Bro. Your dog is not that old.</p>';
         }
     }
-
         ?>
     </div>
+
+<?php 
+if(isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
+        $whichDogImage = ["1","2","3","4","5","6","7","8"];
+        $randomDogImg = randPosition($whichDogImage);
+        echo "<p id='newDogInfo'>You added <span class='fett'>{$_POST['dogName']}</span>, who is a <span class='fett'>{$_POST['age']}</span>-year old <span class='fett'>{$_POST['breed']}</span>!</p>";
+        echo "<div class='newDog$randomDogImg'></div>";
+    }
+?>
+
 <?php 
 if (isset($_SESSION["isLoggedIn"])){
 echo '<div id="loggedContainer">

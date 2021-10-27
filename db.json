@@ -24,13 +24,13 @@
             "name": "Nikki",
             "breed": "Finnish Lapphund",
             "age": "4",
-            "notes": "Fluff",
+            "notes": "Fluffy thing",
             "owner": 1,
             "id": 2
         },
         "2": {
             "name": "Siw",
-            "breed": "Labradoodle",
+            "breed": "Labrador",
             "age": "11",
             "notes": "Curly dawg",
             "owner": 2,

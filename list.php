@@ -20,16 +20,6 @@ $allDogs = getAllDogsDB();
     echo '<h2 class="title">All Dogs</h2>';
     } else {
         echo "<h2 class='title'>All {$_GET['breed']}s</h2>";
-        echo "
-        <div id='signContainer'>
-            <div id='backFromSpecific'>
-                <p>
-                    <span><a href='list.php'>Go back</a></span>
-                    <span><a href='list.php'>to all </a></span>
-                    <span><a href='list.php'>the dogs</a></span>
-                </p>
-            </div>
-        </div>";
     }
     ?>
     <div id="list">

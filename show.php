@@ -1,25 +1,15 @@
 <?php
 error_reporting(-1);
-
+session_start();
 require_once "includes/functions.php";
 require_once "includes/header.php";
 $allDogs = getAllDogsDB();
 ?>
 
 <div id="zoomBackyard">
-    <?php require_once "includes/navigation.php"; ?>
 
         <div id="show">
-        <div id='signContainer'>
-                <div id='backFromSpecific'>
-                    <p>
-                        <span><a href='list.php'>Go back</a></span>
-                        <span><a href='list.php'>to all </a></span>
-                        <span><a href='list.php'>the dogs</a></span>
-                    </p>
-                </div>
-            </div>";
-
+        <?php require_once "includes/navigation.php"; ?>
 
             <?php 
             //kollar om ID i $_GET finns.
@@ -42,7 +32,6 @@ $allDogs = getAllDogsDB();
             }
 
             ?>
-
         </div>
     <?php 
     if (isset($_SESSION["isLoggedIn"])){

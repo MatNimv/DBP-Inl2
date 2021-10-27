@@ -14,9 +14,11 @@ require_once "includes/functions.php";
 require_once "includes/header.php";
 ?>
 
+<div id="zoomHome">
+
 <!-- hantering av $_POST. -->
 <?php
-require_once "includes/navigation.php";
+
 //få ut alla användare från JSON.
 $users = getAllUsersDB();
 
@@ -73,13 +75,13 @@ if (isset($_GET["error"])){
 }
 ?>
 
-<div id="zoomHome">
 
+<?php require_once "includes/navigation.php"; ?>
 <!-- Formulär -->
     <div id="sign-in">
         <div id="parchmentFold">
             <div class="text">
-            <h2>To your backyard</h2>
+            <h2>Unlock the door</h2>
                 <form method="POST" action="/sign-in.php">
                     <input type="text" name="email" placeholder="Your Email">
                     <input type="password" name="password" placeholder="Your Password">

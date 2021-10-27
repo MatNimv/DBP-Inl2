@@ -19,7 +19,9 @@ body {
 
 .title{
     position: absolute;
+    margin-top:5px;
     left: 20px;
+    padding: 5px 3px 0px 3px;
 }
 
 /*BAKGRUNDSBILDER */
@@ -34,17 +36,221 @@ body {
 #backyard{background-image: url("../images/backgrounds/backyard.png");}
 #zoomBackyard{background-image: url("../images/backgrounds/zoomBackyard.png");}
 #inside{background-image: url("../images/backgrounds/inside.png");}
-#home, #backyard, #zoomBackyard, #inside > h1{font-size: 22px;}
-#home, #backyard, #zoomBackyard, #inside > h2{font-size: 22px;}
-#home, #backyard, #zoomBackyard, #inside > h3{font-size: 20px;}
-#home, #backyard, #zoomBackyard, #inside > h4{font-size: 18px;}
-#home, #backyard, #zoomBackyard, #inside > h5{font-size: 16px;}
-#home, #backyard, #zoomBackyard, #inside > h6{font-size: 16px;}
-#home, #backyard, #zoomBackyard, #inside > p{font-size: 22px;}
 
 
 /*VÄLKOMSTTEXT*/
 #index > #parchmentFold,
+#sign-in > #parchmentFold,
+#add > #parchmentFold{
+    background-image: url("../images/UI/Worn-Parchment-BG-2.png");
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display:flex;
+    justify-content: center;
+}
+#sign-in > #parchmentFold,
+#add > #parchmentFold{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+#sign-in > #parchmentFold > .text{position:absolute;bottom: 135px;left: 65px;}
+#add > #parchmentFold > .text{position:absolute;bottom: 178px;;left: 120px;}
+form {display:flex; flex-direction: column; align-items: center;}
+form > input{margin: 10px;}
+#add form > input{margin: 7px;}
+#index > #parchmentFold > .text{width: 300px; text-align: center; margin-top:6px;}
+#index > #parchmentFold > .text > h6{margin-top: 0px; margin-bottom:0px;}
+#add > #parchmentFold > .text > p{ margin:5px 0px 5px 0px;}
+#index > #parchmentFold > .text > p:first-child + p{ margin-top:0px;margin-bottom:2px;}
+#index > #parchmentFold > h6 .title{margin-bottom: 5px;}
+.choices > a, .choices > span{margin-top:4px; font-size: 12px;}
+#add .error{
+    top: 213px;
+    left: 110px;
+    }
+#zoomHome .error{
+    top: 490px;
+    left: 570px;
+    z-index: 1;
+}
+.error{
+    position: absolute;
+    font-size: 12px;
+    color: rgb(206, 6, 6);
+}
+.delete{
+    font-weight: bold;
+    color:white;
+    position: absolute;
+    width: 100px;
+    background-color: rgb(206, 6, 6);
+    border: 2px solid rgb(128, 5, 5);
+    text-align: center;
+}
+#index > #parchmentFold > .text > .choices{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin-top: 15px;}
+#index{
+    width: 370px;
+    height: 300px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-repeat: no-repeat;
+}
+#sign-in, #add{
+    width: 370px;
+    height: 300px;
+    position: absolute;
+    right: 120px;
+    top: 330px;
+    background-repeat: no-repeat;
+}
+#add{
+    right: 10px;
+    top: 230px;
+    width: 450px;
+    height: 400px;
+}
+
+/*NAVIGATION */
+
+#home .signContainer > #toBackyard{/*#home to list.php*/
+    left: 490px;
+    top: 150px;
+}
+#home .signContainer > #toAdd{/*#home to add*/
+    left: 160px;
+    top: 275px;
+} 
+#home .signContainer > #toProfile{/*#home to profile*/
+    left: 260px;
+    top: 275px;
+}
+#home .signContainer > #toInside{/*#home to sign.in*/
+    left: 210px;
+    top: 275px;
+}
+#backyard .signContainer > #toInside{/*#list to unlock sign-in*/
+    left: 500px;
+    top: 5px;
+}
+#backyard .signContainer > #toProfile{/*#list to profile*/
+    left: 600px;
+    top: 5px;
+}
+#backyard .signContainer > #toAdd{/*#list to add.php*/
+    left: 700px;
+    top: 5px;
+}
+#backyard .signContainer > #toHome{/*#list to index.php*/
+    left: 400px;
+    top: 5px;
+}
+#backyard > .signContainer > #toBackyard{/*(#list) back to list.php*/
+    left: 50px;
+    top: 70px;
+}
+.signContainer > #toBackyard{/*/#show) back to list.php*/
+    left: 50px;
+    top: 42px;
+}
+#zoomBackyard .signContainer > #toHome{/*#show to index.php*/
+    left: 150px;
+    top: 42px;}
+#zoomBackyard .signContainer > #toInside{/*#show to sign-in*/
+    left: 280px;
+    top: 42px;}
+#zoomBackyard .signContainer > #toProfile{/*#show to profile*/
+    left: 380px;
+    top: 42px;}
+#zoomBackyard .signContainer > #toAdd{/*#show to add*/
+    left: 480px;
+    top: 42px;}
+#zoomHome .signContainer > #toHome{
+    left: 500px;
+    top: 78px;
+}
+#zoomHome .signContainer > #toBackyard{
+    top: 78px;
+    left: 640px;
+}
+#zoomHome .signContainer > #toInside{
+    top: 78px;
+    left: 780px;    
+}
+#inside .signContainer > #toBackyard{
+    left: 550px;
+    top: 120px;
+}
+#inside .signContainer > #toHome{
+    left: 550px;
+    bottom: 0px;
+    z-index: 100;
+}
+#inside .signContainer > #toProfile{
+    top: 40px;
+    left: 380px;
+}
+#inside .signContainer > #toAdd{
+    top: 40px;
+    left: 280px;
+}
+#toBackyard,
+#backFromSpecific,
+#toHome,
+#toInside,
+#toProfile,
+#toAdd{
+    background-image: url("../images/UI/Box-1-Opaque.png"); 
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.signContainer > #toHome,
+.signContainer > #toBackyard,
+.signContainer > #toInside,
+.signContainer > #toAdd,
+.signContainer > #toProfile,
+.signContainer > #backFromSpecific{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#toHome > p,
+#toBackyard > p,
+#toInside > p,
+#toAdd > p,
+#toProfile > p,
+#backFromSpecific > p{
+    position: relative;
+    right: 2px;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 10px;
+}
+
+nav #notLoggedIn,
+nav #isLoggedIn{
+    position:absolute;
+}
+
+/*ADD DOG FORM*/
+#add > #parchmentFold,
 #sign-in > #parchmentFold{
     background-image: url("../images/UI/Worn-Parchment-BG-2.png");
     width: 100%;
@@ -61,277 +267,6 @@ body {
     align-content: center;
     text-align: center;
 }
-#sign-in > #parchmentFold > .text{position:absolute;bottom: 120px;left: 50px;}
-form {display:flex; flex-direction: column; align-items: center;}
-form > input{margin: 10px;}
-#index > #parchmentFold > .text{width: 300px; text-align: center; margin-top:6px;}
-#index > #parchmentFold > .text > h6{margin-top: 0px; margin-bottom:0px;}
-#index > #parchmentFold > .text > p{ margin-bottom:5px;}
-#index > #parchmentFold > .text > p:first-child + p{ margin-top:0px;margin-bottom:2px;}
-#index > #parchmentFold > h6 .title{margin-bottom: 5px;}
-.choices > a, .choices > span{margin-top:4px; font-size: 12px;}
-#index > #parchmentFold > .text > .choices{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    margin-top: 15px;}
-#index{
-    width: 370px;
-    height: 300px;
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    background-repeat: no-repeat;
-}
-#sign-in{
-    width: 370px;
-    height: 300px;
-    position: absolute;
-    right: 120px;
-    top: 330px;
-    background-repeat: no-repeat;
-}
-
-/*NAVIGATION */
-
-#signContainer > #toBackyard{/*#home to list.php*/
-    position: absolute;
-    left: 490px;
-    top: 150px;
-    width: 100px;
-    height: 150px;
-}
-#toBackyard > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    top: 7px;
-    left:22px;
-}
-#signContainer > #toAdd{/*#home to add*/
-    position: absolute;
-    left: 160px;
-    top: 275px;
-    width: 100px;
-    height: 150px;
-} 
-#toAdd > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 30px;
-    top: 20px;
-}
-#signContainer > #toProfile{/*#home to profile*/
-    position: absolute;
-    left: 260px;
-    top: 275px;
-    width: 100px;
-    height: 150px;
-}
-#toProfile > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 35px;
-    top: 23px;
-}
-#signContainer > #toInsideFromHome{/*#home to sign.in*/
-    position: absolute;
-    left: 210px;
-    top: 275px;
-    width: 110px;
-    height: 150px;
-}
-#toInsideFromHome > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 32px;
-    top: 20px;
-}
-#signContainer > #toInsideFromList{/*#list to unlock sign-in*/
-    position: absolute;
-    left: 500px;
-    top: 5px;
-    width: 100px;
-    height: 150px;
-}
-#toInsideFromList > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 26px;
-    top: 20px;
-}
-#signContainer > #toProfileFromList{/*#list to profile*/
-    position: absolute;
-    left: 600px;
-    top: 5px;
-    width: 100px;
-    height: 150px;
-}
-#toProfileFromList > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 33px;
-    top: 25px;
-}
-#signContainer > #toAddFromList{/*#list to add.php*/
-    position: absolute;
-    left: 700px;
-    top: 5px;
-    width: 100px;
-    height: 150px;
-}
-#toAddFromList > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 30px;
-    top: 20px;
-}
-#signContainer > #toHomeFromList{/*#list to index.php*/
-    position: absolute;
-    left: 400px;
-    top: 5px;
-    width: 100px;
-    height: 150px;
-}
-#toHomeFromList > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 11px;
-    top: 15px;
-}
-#backyard > #signContainer > #backFromSpecific{/*(#list) back to list.php*/
-    position: absolute;
-    left: 50px;
-    top: 70px;
-    width: 100px;
-    height: 150px;
-}
-#show > #signContainer > #backFromSpecific{/*/#show) back to list.php*/
-    position: absolute;
-    left: 50px;
-    top: 35px;
-    width: 100px;
-    height: 150px;
-}
-#backFromSpecific > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 16px;
-    top: 15px;
-}
-#signContainer > #toHomeFromShow{/*#show to index.php*/
-    position: absolute;
-    left: 350px;
-    top: 35px;
-    width: 100px;
-    height: 150px;
-}
-#toHomeFromShow > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 12px;
-    top: 15px;
-}
-#signContainer > #toInsideFromShow{/*#show to sign-in*/
-    position: absolute;
-    left: 450px;
-    top: 35px;
-    width: 100px;
-    height: 150px;
-}
-#toInsideFromShow > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 27px;
-    top: 15px;
-}
-#signContainer > #toProfileFromShow{/*#show to profile*/
-    position: absolute;
-    left: 250px;
-    top: 70px;
-    width: 100px;
-    height: 150px;
-}
-#toProfileFromShow > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 16px;
-    top: 15px;
-}
-#signContainer > #toAddFromShow{/*#show to add*/
-    position: absolute;
-    left: 150px;
-    top: 70px;
-    width: 100px;
-    height: 150px;
-}
-#toAddFromShow > p{
-    position: absolute;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 12px;
-    left: 16px;
-    top: 15px;
-}
-#toBackyard,
-#toProfile, 
-#toAdd,
-#toInsideFromHome,
-#toInsideFromList,
-#toProfileFromList,
-#toAddFromList,
-#toHomeFromList,
-#backFromSpecific,
-#toHomeFromShow,
-#toInsideFromShow,
-#toProfileFromShow,
-#toAddFromShow{
-    background-image: url("../images/UI/Box-1-Opaque.png"); 
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-
 
 
 /*FOOOTER*/
@@ -353,7 +288,7 @@ footer p {
 #loggedContainer{
     position: absolute;
     bottom: 0px;
-    right: 0px;
+    right: -40px;
     width: 180px;
 }
 #loggedIn{
@@ -368,7 +303,17 @@ footer p {
 #loggedIn > a {
     font-size: 14px;
     position: relative;
-    bottom: 3px;
+    bottom: 0px;
+    right: 15px;
+}
+
+/*ADD - dog*/
+#newDogInfo{
+    font-size: 14px;
+    position: absolute;
+    top: 320px;
+    left: 90px;
+    padding:8px;
 }
 
 /*SHOW - dogs */
@@ -385,9 +330,10 @@ footer p {
     font-weight: bolder;
 }
 #show .einHundList{top: 250px;left: 200px;}
+#inside .einHund{top: 65px; right: 700px;}
 
 /*LIST - dogs */
-.einHundList, .einHundProfile{
+.einHundList, .einHundProfile, .einHund{
     position: absolute;
     font-size: 10px;
 }
@@ -400,6 +346,7 @@ footer p {
 }
 #show .dogInfo{grid-template-columns: repeat(5, 80px);}
 #list .dogInfo{grid-template-columns: repeat(5, 50px);}
+#profile .dogInfo{grid-template-columns: repeat(6, 50px);}
 .dogInfo > .name > :first-child,
 .dogInfo > .breed > :first-child, 
 .dogInfo > .age > :first-child,
@@ -408,14 +355,15 @@ footer p {
     margin: 0px 4px 0px 4px;
     font-weight: bolder;
 }
-.dogInfo > .notes{
+.dogInfo > .notes, .title, #newDogInfo{
     position: absolute;
     background-color: rgb(214, 192, 118);
     border-right: 4px solid rgb(138, 123, 75);
     border-bottom: 4px solid rgb(138, 123, 75);
     z-index: 1;
 }
-#list .dogInfo > .notes{left: 210px;}
+#list .dogInfo > .notes,
+#inside .dogInfo > .notes{left: 210px;}
 #show .dogInfo > .notes{left: 330px;}
 .dogInfo > .breed{
     margin: 0px 4px 0px 4px;
@@ -427,10 +375,39 @@ footer p {
 #list .dog5,
 #list .dog6,
 #list .dog7,
-#list .dog8 { 
+#list .dog8{ 
     width: 50px;
     height:50px;
     position:absolute;
+    left: 150px;
+    background-size: contain;
+}
+#inside .newDog1, 
+#inside .newDog2,
+#inside .newDog3,
+#inside .newDog4,
+#inside .newDog5,
+#inside .newDog6,
+#inside .newDog7,
+#inside .newDog8 { 
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 400px;
+    background-size: contain;
+    top:400px;
+}
+#inside .dog1, 
+#inside .dog2,
+#inside .dog3,
+#inside .dog4,
+#inside .dog5,
+#inside .dog6,
+#inside .dog7,
+#inside .dog8{
+    width: 70px;
+    height: 70px;
+    position: absolute;
     left: 150px;
     background-size: contain;
 }
@@ -448,247 +425,33 @@ footer p {
     left: 150px;
     background-size: contain;
 }
+
 /*ful lösning lol*/
-.einHundList:nth-child(1){top: 300px; left: 300px;}
-.einHundList:nth-child(2){top: 465px; left: 220px;}
-.einHundList:nth-child(3){top: 200px; left: 0px;}
-.einHundList:nth-child(4){top: 450px; left: 520px;}
-.einHundList:nth-child(5){top: 180px; left: 430px;}
-.einHundList:nth-child(6){top: 320px; left: 600px;}
-.einHundList:nth-child(7){top: 350px; left: 25px;}
-.einHundList:nth-child(8){top: 465px; left: 220px;}
+#backyard .einHundList:nth-child(1){top: 300px; left: 300px;}
+#backyard .einHundList:nth-child(2){top: 465px; left: 220px;}
+#backyard .einHundList:nth-child(3){top: 200px; left: 0px;}
+#backyard .einHundList:nth-child(4){top: 450px; left: 520px;}
+#backyard .einHundList:nth-child(5){top: 180px; left: 430px;}
+#backyard .einHundList:nth-child(6){top: 320px; left: 600px;}
+#backyard .einHundList:nth-child(7){top: 350px; left: 25px;}
+#backyard .einHundList:nth-child(8){top: 465px; left: 220px;}
 
-.dog1{background-image: url("/assets/images/animals/dog_1.gif");}
-.dog2{background-image: url("/assets/images/animals/dog_2.gif");}
-.dog3{background-image: url("/assets/images/animals/dog_3.gif");}
-.dog4{background-image: url("/assets/images/animals/dog_4.gif");}
-.dog5{background-image: url("/assets/images/animals/dog_5.gif");}
-.dog6{background-image: url("/assets/images/animals/dog_6.gif");}
-.dog7{background-image: url("/assets/images/animals/dog_7.gif");}
-.dog8{background-image: url("/assets/images/animals/dog_8.gif");}
-/*header > h1{text-align: center;
-    color: white;}
+#inside .einHundList:nth-child(1){top: 300px; left: 300px;}
+#inside .einHundList:nth-child(2){top: 465px; left: 220px;}
+#inside .einHundList:nth-child(3){top: 230px;left: 5px;}
+#inside .einHundList:nth-child(4){top: 450px;left: 660px;}
+#inside .einHundList:nth-child(5){top: 200px; left: 430px;}
+#inside .einHundList:nth-child(6){top: 320px; left: 600px;}
+#inside .einHundList:nth-child(7){top: 345px; left: 25px;}
+#inside .einHundList:nth-child(8){top: 90px;left: 665px;}
 
-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 1;
-}
+.dog1, .newDog1{background-image: url("/assets/images/animals/dog_1.gif");}
+.dog2, .newDog2{background-image: url("/assets/images/animals/dog_2.gif");}
+.dog3, .newDog3{background-image: url("/assets/images/animals/dog_3.gif");}
+.dog4, .newDog4{background-image: url("/assets/images/animals/dog_4.gif");}
+.dog5, .newDog5{background-image: url("/assets/images/animals/dog_5.gif");}
+.dog6, .newDog6{background-image: url("/assets/images/animals/dog_6.gif");}
+.dog7, .newDog7{background-image: url("/assets/images/animals/dog_7.gif");}
+.dog8, .newDog8{background-image: url("/assets/images/animals/dog_8.gif");}
 
-nav a {
-    font-family: Helvetica;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #3a3a3a;
-    border-bottom: 1px solid #aaa;
-}
-
-nav a:hover {
-    transition: background-color 200ms ease;
-    background-color: #eee;
-}
-
-#wrapper{
-    box-shadow: 0px 0px 25px 2px rgb(121, 121, 121);
-    padding: 10px 30px 30px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 100;
-}
-
-#wrapper > h3{
-    margin:0px;
-    margin-bottom: 5px;
-}
-
-
-
-
-nav > h2 a{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    margin: 0px;
-}
-nav > h2{margin-top:0px;}
-
-form {
-    max-width: 350px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-
-input, button {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input {
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    margin-bottom: 5px;
-}
-
-button {
-    padding: 8px 10px;
-    border-radius: 2px;
-    color: #ffffff;
-    background-color: rgb(27, 117, 177);
-    border: 0;
-    cursor: pointer;
-    transition: background-color 200ms ease;
-    display:flex;
-    justify-content: center;
-}
-
-button:hover {
-    background-color: rgb(24, 92, 138);
-}
-
-form h2 {
-    color: #3a3a3a;
-    margin-top: 0;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #aaa;
-}
-
-.fett {
-    font-weight:bolder;
-}
-
-.error {
-    font-size: 14px;
-    font-style: italic;
-    text-align: center;
-    color: #d94e4e;
-}
-
-#list, #profile{
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-}
-.oneDog{
-    display:grid;
-    grid-template-columns: repeat(6, 147px);
-    width: 100%;
-}
-
-
-.oneDog  p {
-    flex-basis: 0;
-    flex-grow: 1;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.oneDog:not(:first-child)
-.name > p:first-child, 
-.oneDog:not(:first-child)
-.breed > p:first-child, 
-.oneDog:not(:first-child)
-.age > p:first-child, 
-.oneDog:not(:first-child)
-.notes > p:first-child, 
-.oneDog:not(:first-child)
-.owner > p:first-child, 
-.oneDog:not(:first-child)
-.delete > p:first-child{
-    opacity: 0;
-    margin: 0px;
-}
-
-.oneDog:not(:last-child)
-.name > p:last-child, 
-.oneDog:not(:last-child)
-.breed > p:last-child, 
-.oneDog:not(:last-child)
-.age > p:last-child, 
-.oneDog:not(:last-child)
-.notes > p:last-child, 
-.oneDog:not(:last-child)
-.owner > p:last-child, 
-.oneDog:not(:last-child)
-.delete > p:last-child{
-    margin-top: 0px;
-}
-
-.oneDog:first-child .name > p:last-child, 
-.oneDog:first-child .breed > p:last-child, 
-.oneDog:first-child .age > p:last-child, 
-.oneDog:first-child .notes > p:last-child, 
-.oneDog:first-child .owner > p:last-child, 
-.oneDog:first-child .delete > p:last-child{
-    margin-bottom: 5px;
-
-}
-
-.oneDog:first-child .name > p:last-child, 
-.oneDog:first-child .breed > p:last-child, 
-.oneDog:first-child .age > p:last-child, 
-.oneDog:first-child .notes > p:last-child, 
-.oneDog:first-child .owner > p:last-child{
-    margin-top: 3px;
-}
-
-.oneDog:first-child .name > p:first-child, 
-.oneDog:first-child .breed > p:first-child, 
-.oneDog:first-child .age > p:first-child, 
-.oneDog:first-child .notes > p:first-child, 
-.oneDog:first-child .owner > p:first-child, 
-.oneDog:first-child .delete > p:first-child{
-    font-weight:bolder;
-    color:white;
-    text-shadow: 1px 1px 5px black;
-}
-
-.oneDog a{
-    text-decoration: none;
-    color:rgb(24, 92, 138);
-    font-weight: bold;
-    transition: color 200ms ease;
-}
-
-.oneDog a:hover{
-    color: rgb(16, 64, 97);
-    text-decoration: underline;
-}
-
-.oneDog .delete > p:last-child a{
-    color:white;
-    background-color: rgb(177, 43, 83);
-    padding: 7px;
-    transition: background-color 200ms ease;
-}
-.oneDog .delete > p:last-child a:hover{
-    background-color: rgb(148, 36, 69);
-}
-.oneDog .delete > p:last-child a:active{
-    background-color: rgb(92, 22, 43);
-}
-
-.oneDog .owner > p:last-child{
-    font-style: italic;
-}
-
-.oneDog:first-child{
-    padding-bottom: 4px;
-}
-
-.oneDog:nth-child(odd) {
-    background-color: rgb(236, 245, 252);
-}
-.oneDog:nth-child(even) {
-    background-color: rgb(243, 239, 255);
-}
-*/
+.fett{font-weight: bolder;}

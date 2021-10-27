@@ -13,7 +13,7 @@ if (!isset($_SESSION["isLoggedIn"])){
     echo "<div id='index'>
             <div id='parchmentFold'>
                 <div class='text'>
-                    <p> Welcome to <a href='/index.php'>IDDb</a>!</p>
+                    <p> Welcome to IDDb!</p>
                     <h6 class='choices'>
                     <span> Look at the signs </span> 
                     <span>
@@ -26,7 +26,7 @@ if (!isset($_SESSION["isLoggedIn"])){
     echo "<div id='index'>
             <div id='parchmentFold'>
                 <div class='text'>
-                    <p> Welcome to <a href='/index.php'>IDDb</a>, </p>
+                    <p> Welcome to IDDb, </p>
                     <p> {$_SESSION['user']}!</p>
                     <h6 class='choices'>
                         <span> Look at the signs </span> 
