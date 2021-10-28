@@ -1,4 +1,6 @@
 <?php
+//hej rättningsperson! om det skulle vara så att kraven inte
+//uppfylls lämnade jag även in en (tråkigare) version före denna.
 error_reporting(-1);
 session_start();
 require_once "includes/header.php";

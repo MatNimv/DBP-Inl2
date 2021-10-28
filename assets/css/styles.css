@@ -475,19 +475,24 @@ footer p {
 a{text-decoration: none;color:black;}
 
 
-
 .signContainer:hover,
 .einHundList a:hover, .einHundProfile a:hover, .einHund a:hover,
 #loggedIn:hover{
     animation: MoveUpDown 1s linear infinite;
     position: relative;
-    left: 0;
-    bottom: 0;
+}
+
+#inside .signContainer > #toHome{
+    z-index: 0;
+}
+#inside .signContainer:hover > #toHome{
+    position: absolute;
+    top: 500px;
 }
 
 @keyframes MoveUpDown {
     0%, 100% {
-    bottom: 0;
+    left: 0;
     }
     50% {
     bottom: 5px;
