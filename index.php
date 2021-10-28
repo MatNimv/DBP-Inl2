@@ -15,7 +15,7 @@ if (!isset($_SESSION["isLoggedIn"])){
                 <div class='text'>
                     <p> Welcome to IDDb!</p>
                     <h6 class='choices'>
-                    <span> Look at the signs </span> 
+                    <span> Read the signs </span> 
                     <span>
                     to navigate!
                     </span></h6>
@@ -29,7 +29,7 @@ if (!isset($_SESSION["isLoggedIn"])){
                     <p> Welcome to IDDb, </p>
                     <p> {$_SESSION['user']}!</p>
                     <h6 class='choices'>
-                        <span> Look at the signs </span> 
+                        <span> Read the signs </span> 
                         <span>
                         to navigate!
                         </span></h6>
@@ -40,7 +40,6 @@ if (!isset($_SESSION["isLoggedIn"])){
 }
 ?>
 <?php
-
 if (isset($_SESSION["isLoggedIn"])){
 echo '<div id="loggedContainer">
         <div id="loggedIn"><a href="sign-out.php">Sign out</a></div>

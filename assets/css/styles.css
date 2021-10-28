@@ -73,25 +73,28 @@ form > input{margin: 10px;}
     top: 213px;
     left: 110px;
     }
+#inside .errorTwo{
+    top: 478px;
+    left: 600px;
+}
 #zoomHome .error{
     top: 490px;
     left: 570px;
     z-index: 1;
 }
-.error{
+.error, .errorTwo{
     position: absolute;
     font-size: 12px;
     color: rgb(206, 6, 6);
 }
-.delete{
+#profile .delete{
     font-weight: bold;
-    color:white;
     position: absolute;
     width: 100px;
     background-color: rgb(206, 6, 6);
-    border: 2px solid rgb(128, 5, 5);
+    border: 4px solid rgb(128, 5, 5);
     text-align: center;
-}
+}#profile .delete a{color:white;}
 #index > #parchmentFold > .text > .choices{
     display: flex;
     flex-direction: column;
@@ -125,7 +128,7 @@ form > input{margin: 10px;}
 /*NAVIGATION */
 
 #home .signContainer > #toBackyard{/*#home to list.php*/
-    left: 490px;
+    left: 495px;
     top: 150px;
 }
 #home .signContainer > #toAdd{/*#home to add*/
@@ -137,7 +140,7 @@ form > input{margin: 10px;}
     top: 275px;
 }
 #home .signContainer > #toInside{/*#home to sign.in*/
-    left: 210px;
+    left: 215px;
     top: 275px;
 }
 #backyard .signContainer > #toInside{/*#list to unlock sign-in*/
@@ -337,6 +340,20 @@ footer p {
     position: absolute;
     font-size: 10px;
 }
+.einHundList a, .einHundProfile a, .einHund a{
+    color:rgb(112, 80, 38)
+}
+
+.signBorder{
+    background-color: rgb(214, 192, 118);
+    border: 4px solid rgb(138, 123, 75);
+    padding: 5px;
+    position: absolute;
+}
+#profile .signBorder{width: 500px;top: 345px;left: 250px;}
+#list .signBorder{top: 350px;left: 300px;}
+#zoomBackyard .signBorder{top: 350px;left: 320px;}
+#inside .signBorder{top: 330px;left: 130px;}
 
 .dogInfo{
     display:grid;
@@ -345,8 +362,7 @@ footer p {
     border: 4px solid rgb(138, 123, 75);
 }
 #show .dogInfo{grid-template-columns: repeat(5, 80px);}
-#list .dogInfo{grid-template-columns: repeat(5, 50px);}
-#profile .dogInfo{grid-template-columns: repeat(6, 50px);}
+#list .dogInfo, #profile .dogInfo{grid-template-columns: repeat(5, 50px);}
 .dogInfo > .name > :first-child,
 .dogInfo > .breed > :first-child, 
 .dogInfo > .age > :first-child,
@@ -408,7 +424,7 @@ footer p {
     width: 70px;
     height: 70px;
     position: absolute;
-    left: 150px;
+    left: 143px;
     background-size: contain;
 }
 #show .dog1, 
@@ -434,7 +450,8 @@ footer p {
 #backyard .einHundList:nth-child(5){top: 180px; left: 430px;}
 #backyard .einHundList:nth-child(6){top: 320px; left: 600px;}
 #backyard .einHundList:nth-child(7){top: 350px; left: 25px;}
-#backyard .einHundList:nth-child(8){top: 465px; left: 220px;}
+#backyard .einHundList:nth-child(8){top: 128px;left: 630px;}
+#backyard .einHundList:nth-child(9){top: 90px;left: 120px;}
 
 #inside .einHundList:nth-child(1){top: 300px; left: 300px;}
 #inside .einHundList:nth-child(2){top: 465px; left: 220px;}
@@ -455,3 +472,24 @@ footer p {
 .dog8, .newDog8{background-image: url("/assets/images/animals/dog_8.gif");}
 
 .fett{font-weight: bolder;}
+a{text-decoration: none;color:black;}
+
+
+
+.signContainer:hover,
+.einHundList a:hover, .einHundProfile a:hover, .einHund a:hover,
+#loggedIn:hover{
+    animation: MoveUpDown 1s linear infinite;
+    position: relative;
+    left: 0;
+    bottom: 0;
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+    bottom: 0;
+    }
+    50% {
+    bottom: 5px;
+    }
+}

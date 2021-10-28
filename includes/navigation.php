@@ -3,7 +3,7 @@
 if (!isset($_SESSION["isLoggedIn"])){
     echo "
     <nav id='notLoggedIn'>
-        <div class='signContainer'>
+        <div class='signContainer'</a>
             <div id='toHome'>
                 <p>
                     <span><a href='/index.php'>To</a></span>

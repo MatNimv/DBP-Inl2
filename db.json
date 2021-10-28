@@ -19,16 +19,8 @@
             "password": "hellodog"
         }
     ],
-    "dogs": {
-        "1": {
-            "name": "Nikki",
-            "breed": "Finnish Lapphund",
-            "age": "4",
-            "notes": "Fluffy thing",
-            "owner": 1,
-            "id": 2
-        },
-        "2": {
+    "dogs": [
+        {
             "name": "Siw",
             "breed": "Labrador",
             "age": "11",
@@ -36,7 +28,7 @@
             "owner": 2,
             "id": 3
         },
-        "4": {
+        {
             "name": "Hoppe",
             "breed": "Tax",
             "age": "8",
@@ -44,7 +36,7 @@
             "owner": 3,
             "id": 5
         },
-        "5": {
+        {
             "name": "Sally",
             "breed": "Pug",
             "age": "4",
@@ -52,7 +44,7 @@
             "owner": 3,
             "id": 6
         },
-        "6": {
+        {
             "name": "Allan",
             "breed": "Shih Tzu",
             "age": "3",
@@ -60,13 +52,21 @@
             "owner": 2,
             "id": 7
         },
-        "7": {
+        {
             "name": "Erik",
             "breed": "Mastiff",
-            "age": "16",
+            "age": "18",
             "notes": "He runs four hours a day",
             "owner": 1,
             "id": 8
+        },
+        {
+            "name": "Nikki",
+            "breed": "Finnish Lapphund",
+            "age": "1",
+            "notes": "Svart m. ljusbrun t\u00e4ckning",
+            "owner": 1,
+            "id": 9
         }
-    }
+    ]
 }

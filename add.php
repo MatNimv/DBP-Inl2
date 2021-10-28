@@ -1,12 +1,4 @@
 <?php
-
-// Sidan för att lägga till en ny hund, tänk på att man måste vara inloggad för
-// att se och kunna besöka denna.
-
-//Innehåller ett formulär för att lägga till en ny hund (formuläret kan antingen 
-//skicka sin data till en separat fil eller till sig själv). När hunden är tillagd ska ett relevant 
-//meddelande visas, annars ska ett relevant felmeddelande visas. Nyttja användarens "id" som ni 
-//sparat i er session för att ange vem hundens "owner" är.
 error_reporting(-1);
 session_start();
 if (!isset($_SESSION["isLoggedIn"])){
@@ -15,6 +7,7 @@ if (!isset($_SESSION["isLoggedIn"])){
 }
 require_once "includes/functions.php";
 require_once "includes/header.php";
+$allDogs = getAllDogsDB();
 
 //checkar $_POST värdena
 if (isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
@@ -47,11 +40,9 @@ if (isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
                     <input type="text" name="notes" placeholder="Notes">
                     <button>Add</button>
                 </form>
-                </div>
             </div>
-        
+        </div>
 <?php
-
     //kikar efter errors i $_GET.
     if (isset($_GET["error"])){
         $error = $_GET["error"];
@@ -61,16 +52,19 @@ if (isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
             echo '<p class="error">Bro. Your dog is not that old.</p>';
         }
     }
-        ?>
+?>
     </div>
 
 <?php 
 if(isset($_POST["dogName"], $_POST["breed"], $_POST["age"], $_POST["notes"])){
         $whichDogImage = ["1","2","3","4","5","6","7","8"];
         $randomDogImg = randPosition($whichDogImage);
-        echo "<p id='newDogInfo'>You added <span class='fett'>{$_POST['dogName']}</span>, who is a <span class='fett'>{$_POST['age']}</span>-year old <span class='fett'>{$_POST['breed']}</span>!</p>";
+        echo "<p class='signBorder'>You added <span class='fett'>{$_POST['dogName']}</span>, who is a <span class='fett'>{$_POST['age']}</span>-year old <span class='fett'>{$_POST['breed']}</span>!</p>";
         echo "<div class='newDog$randomDogImg'></div>";
     }
+if(count($allDogs) >= 8){
+    echo "<p class='errorTwo'>It's getting a bit crowded in the backyard!</p>";
+}
 ?>
 
 <?php 

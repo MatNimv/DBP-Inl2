@@ -1,24 +1,12 @@
 <?php
-// Inloggningssidan. Tänk på att formuläret kan skicka uppgifterna till denna
-// filen också. Det gäller då att du t.ex. kontrollerar om $_POST innehåller
-// något. Om inloggningen lyckas slussar du vidare dom till listningssidan.
-
-//Innehåller ett formulär för att logga in med email och lösenord 
-//(formuläret kan antingen skicka sin data till en separat fil eller till sig själv). Skickar användaren 
-//till "Dogs" vid inloggning, annars ska ett relevant felmeddelande visas. När en användare har 
-//loggat in ska ni spara dennes "id" i er session (så ni har det tillgodo)
-
 error_reporting(-1);
 session_start();
 require_once "includes/functions.php";
 require_once "includes/header.php";
 ?>
-
 <div id="zoomHome">
-
 <!-- hantering av $_POST. -->
 <?php
-
 //få ut alla användare från JSON.
 $users = getAllUsersDB();
 
@@ -74,8 +62,6 @@ if (isset($_GET["error"])){
     }
 }
 ?>
-
-
 <?php require_once "includes/navigation.php"; ?>
 <!-- Formulär -->
     <div id="sign-in">

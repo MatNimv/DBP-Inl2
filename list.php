@@ -2,8 +2,6 @@
 error_reporting(-1);
 session_start();
 require_once "includes/functions.php";
-// Lista alla hundar.
-
 require_once "includes/header.php";
 $allDogs = getAllDogsDB();
 ?>
@@ -11,7 +9,6 @@ $allDogs = getAllDogsDB();
 
 <div id="backyard">
 <?php require_once "includes/navigation.php"; ?>
-
     <!-- skapa element för varje hund -->
     <?php 
     //ändrar h2 beroende på om vi visar alla hundar
@@ -24,7 +21,6 @@ $allDogs = getAllDogsDB();
     ?>
     <div id="list">
     <?php 
-
     //kollar om BREED i $_GET finns.
     if (isset($_GET["breed"])){
         $breed = $_GET["breed"];
@@ -37,7 +33,7 @@ $allDogs = getAllDogsDB();
         }//om breeden INTE finns - alltså inget har lagts till i arrayen
         //skrivs det ut ett felmeddelande. 
         if (count($dogBreeds) == 0){
-            echo "<p class='error'>This breed does not exist.</p>";
+            echo "<p class='signBorder'>This breed does not exist.</p>";
         } else {//varje breed med samma $_GET visas
             foreach($dogBreeds as $dog){
                 echo showOneDog($dog);
@@ -51,9 +47,7 @@ $allDogs = getAllDogsDB();
     //allt ovan kan jag ju ha i i en funktion i functions.php, och sedan kalla på den.  
     //Tycker själv det är tydligare att ha foreach på plats där det sker.
     ?>
-
 </div>
-
 <?php 
 if (isset($_SESSION["isLoggedIn"])){
 echo '<div id="loggedContainer">
@@ -61,8 +55,5 @@ echo '<div id="loggedContainer">
     </div>';
 }
 ?>
-    </div>
-
-<!--<img src="/assets/images/animals/dog_3.gif">-->
-
+</div>
 <?php require_once "includes/footer.php"; ?>

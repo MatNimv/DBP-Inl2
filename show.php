@@ -10,7 +10,6 @@ $allDogs = getAllDogsDB();
 
         <div id="show">
         <?php require_once "includes/navigation.php"; ?>
-
             <?php 
             //kollar om ID i $_GET finns.
             if (isset($_GET["id"])){
@@ -24,7 +23,7 @@ $allDogs = getAllDogsDB();
                 }//om den INTE finns - alltså inget har lagts till i arrayen
                 //skrivs det ut ett felmeddelande.
                 if (count($oneDog) == 0){
-                    echo "<p class='error'>This dog does not exist.</p>";
+                    echo "<p class='signBorder'>This dog does not exist.</p>";
                 } else {
                     //den första indexen av arrayen körs. det kan bara finnas 1 hund i arrayen.
                     echo showOneDog($oneDog[0]);

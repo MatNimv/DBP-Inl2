@@ -173,6 +173,5 @@ function checkIfURL($stringInURL){
         return false;
     }
 }
-
 ?>
 
