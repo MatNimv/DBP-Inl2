@@ -474,21 +474,16 @@ footer p {
 .fett{font-weight: bolder;}
 a{text-decoration: none;color:black;}
 
-
 .signContainer:hover,
-.einHundList a:hover, .einHundProfile a:hover, .einHund a:hover,
-#loggedIn:hover{
+.einHundList a:hover, 
+.einHundProfile a:hover, 
+.einHund a:hover,
+#loggedIn:hover, .oneDog a:hover{
     animation: MoveUpDown 1s linear infinite;
     position: relative;
 }
-
-#inside .signContainer > #toHome{
-    z-index: 0;
-}
-#inside .signContainer:hover > #toHome{
-    position: absolute;
-    top: 500px;
-}
+#inside .signContainer > #toHome{z-index: 0;}
+#inside .signContainer:hover > #toHome{position: absolute;top: 500px;}
 
 @keyframes MoveUpDown {
     0%, 100% {
@@ -497,4 +492,102 @@ a{text-decoration: none;color:black;}
     50% {
     bottom: 5px;
     }
+}
+
+/*händer endast i LIST.php om det är mer än 9 hundar.*/
+#temporaryListWrapper{
+    position: absolute;
+    top: 120px;
+    left: 150px;
+    width: 700px; 
+    height: 450px;
+    background-color: rgb(214, 192, 118);
+    border: 5px solid rgb(138, 123, 75);
+    overflow-y: scroll;
+}
+#temporaryList{
+    display:flex;
+    flex-direction: column;
+    width: 700px;
+}
+#list #passiveAgressiveMessage{
+    top: 100px;
+    width: 520px;
+    font-size: 10px;
+    z-index: 10;
+    left:230px;
+}
+.oneDog{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+}
+.oneDog p{
+    display:flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.oneDog a {
+    color:rgb(112, 80, 38)
+}
+
+.oneDog:nth-child(odd){
+    background-color: rgb(214, 192, 118);
+}
+.oneDog:nth-child(even){
+    background-color: rgb(214, 172, 118);
+}
+
+/* lolol specifikt */
+/*titlarna som inte syns*/
+.oneDog:not(:first-child) .name > p:first-child, 
+.oneDog:not(:first-child) .breed > p:first-child, 
+.oneDog:not(:first-child) .age > p:first-child, 
+.oneDog:not(:first-child) .notes > p:first-child, 
+.oneDog:not(:first-child) .owner > p:first-child, 
+.oneDog:not(:first-child) .delete > p:first-child{
+opacity: 0;
+margin: 0px;
+font-size: 5px;
+background-color:black;
+}
+.oneDog:not(:last-child).name > p:last-child, 
+.oneDog:not(:last-child).breed > p:last-child, 
+.oneDog:not(:last-child).age > p:last-child, 
+.oneDog:not(:last-child).notes > p:last-child, 
+.oneDog:not(:last-child).owner > p:last-child, 
+.oneDog:not(:last-child).delete > p:last-child{
+margin-top: 0px;
+}
+
+.oneDog:first-child .name > p:last-child, 
+.oneDog:first-child .breed > p:last-child, 
+.oneDog:first-child .age > p:last-child, 
+.oneDog:first-child .notes > p:last-child, 
+.oneDog:first-child .owner > p:last-child, 
+.oneDog:first-child .delete > p:last-child{
+margin-bottom: 5px;
+
+}
+
+.oneDog:first-child .name > p:last-child, 
+.oneDog:first-child .breed > p:last-child, 
+.oneDog:first-child .age > p:last-child, 
+.oneDog:first-child .notes > p:last-child, 
+.oneDog:first-child .owner > p:last-child{
+margin-top: 3px;
+}
+
+.oneDog:first-child .name > p:first-child, 
+.oneDog:first-child .breed > p:first-child, 
+.oneDog:first-child .age > p:first-child, 
+.oneDog:first-child .notes > p:first-child, 
+.oneDog:first-child .owner > p:first-child, 
+.oneDog:first-child .delete > p:first-child{
+font-weight:bolder;
+color:white;
+text-shadow: 1px 1px 5px black;
 }

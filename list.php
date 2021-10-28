@@ -40,20 +40,26 @@ $allDogs = getAllDogsDB();
             }
         }
     } else {//går genom och visar ALLA hundar.
+        if (count($allDogs) >= 10){
+            echo "<div id='passiveAgressiveMessage' class='signBorder'>Since you just HAD do add more than 10 dogs. Here is a list of all of them.</div>";
+            echo "<div id='temporaryListWrapper'>";}
         foreach($allDogs as $dog){
             echo showOneDog($dog);
         }
     }
-    //allt ovan kan jag ju ha i i en funktion i functions.php, och sedan kalla på den.  
+    if (count($allDogs) >= 9){echo "</div>";}
+    //allt ovan kan jag ju ha i en funktion i functions.php, och sedan kalla på den.  
     //Tycker själv det är tydligare att ha foreach på plats där det sker.
     ?>
-</div>
+
+    </div>
 <?php 
 if (isset($_SESSION["isLoggedIn"])){
 echo '<div id="loggedContainer">
         <div id="loggedIn"><a href="sign-out.php">Sign out</a></div>
-    </div>';
+    ';
 }
 ?>
+</div>
 </div>
 <?php require_once "includes/footer.php"; ?>

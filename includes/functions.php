@@ -4,18 +4,13 @@ error_reporting(-1);
 //arrayer för CSS
 //vilken position:absolute hunden ska ha - utomhus
 
-//vilken hundbild det blir
-
-
-    function randPosition($array){
-        shuffle($array);
-        for ($i=0; $i < $array; $i++){
-            return $array[$i];
-        }
+//randomisar från en array.
+function randPosition($array){
+    shuffle($array);
+    for ($i=0; $i < $array; $i++){
+        return $array[$i];
     }
-
-
-
+}
 
 //Hämtar alla användare från DB
 function getAllUsersDB(){
@@ -98,6 +93,7 @@ function showOneDog($dogInfo){
 
     //koppla ihop användaren till sin hund
     $allUsers = getAllUsersDB();
+    $allDogs = getAllDogsDB();
     foreach($allUsers as $user){
         if($user["id"] == $dogInfo["owner"]){
             $nameOfUser = $user['username'];
@@ -135,7 +131,33 @@ function showOneDog($dogInfo){
             <p><a href='delete.php?id={$dogInfo['id']}'>Remove dog :(</a></p>
         </div>
     </div>";
-    } else {//om vi INTE är inne på profile. då ska vi 
+    //denna kommer bara upp om det är mer än 9 hundar. u had to.
+    //OCH man är inne på list.php.
+    } elseif (checkIfURL("list") == true && count($allDogs) >= 9){
+        $dogDiv = "
+            <div class='oneDog'>
+                <div class='name'>
+                    <p>NAME</p>
+                    <p><a href='show.php?id={$dogInfo['id']}'>{$dogInfo['name']}</a></p>
+                </div>
+                <div class='breed'>
+                    <p>BREED</p>
+                    <p><a href='list.php?breed={$dogInfo['breed']}'>{$dogInfo['breed']}</a></p>
+                </div>
+                <div class='age'>
+                    <p>AGE</p>
+                    <p>{$dogInfo['age']}</p>
+                </div>
+                <div class='notes'>
+                    <p>NOTES</p>
+                    <p>{$dogInfo['notes']}</p>
+                </div>
+                <div class='owner'>
+                    <p>OWNER</p>
+                    <p>{$nameOfUser}</p>
+                </div>
+            </div>";
+    }else {//om vi INTE är inne på profile. då ska vi 
         $dogDiv = "
         <div class='einHundList'>
         <div class='dogTextContainer'>
